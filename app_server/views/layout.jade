@@ -6,6 +6,18 @@ html
     link(rel='stylesheet', href='./css/bootstrap.min.css')
     link(rel='stylesheet', href='./fa/all.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src='js/bootstrap.min.js')
   body
+    nav.navbar.fixed-top.navbar-expand-md.navbar-light 
+      .container 
+        a.navbar-brand(href='/') ختم القرآن الكريم
+          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarMain')
+            span.navbar-toggler-icon
+      #navbarMain.navbar-collapse.collapse
+    .container.content 
+      block content 
+      footer.fixed-bottom
+        .row 
+          .col-12 
+            small &copy; Holy Coran Seal - Sadok Jbenyeni 2021
+  script(src='js/bootstrap.min.js')
     block content
