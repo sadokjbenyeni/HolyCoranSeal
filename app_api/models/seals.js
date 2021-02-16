@@ -1,18 +1,12 @@
 const mongoose = require('mongoose');
 
 const chapterSchema = new mongoose.Schema({
-    id: {
-        type: Number,
-        required: true
-    },
+    id: Number,
     reader: String,
 });
 
 const sealSchema = new mongoose.Schema({
-    id: {
-        type: Number,
-        required: true
-    },
+    id: Number,
     creationDate: {
         type: Date,
         default: Date.UTC

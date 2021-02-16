@@ -3,9 +3,9 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-require('./app_server/models/db');
-const homeRouter = require('./app_server/routes/homepage');
-const usersRouter = require('./app_server/routes/users');
+require('./app_api/models/db');
+const serverRouter = require('./app_server/routes/index');
+const apiRouter = require('./app_api/routes/index');
 
 var app = express();
 
@@ -21,8 +21,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
 app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
 app.use('/fa', express.static(path.join(__dirname, 'node_modules/@fortawesome/fontawesome-free/css')));
-app.use('/', homeRouter);
-app.use('/users', usersRouter);
+app.use('/', serverRouter);
+app.use('/', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
