@@ -558,9 +558,32 @@ const updateOneSeal = (req, res) => {
         });
 };
 
+const deleteOneSeal = (req, res) => {
+    const { sealid } = req.params;
+    if (sealid) {
+        Seal
+            .findByIdAndRemove(sealid)
+            .exec((err, seal) => {
+                if (err) {
+                    return res
+                        .status(404)
+                        .json(err);
+                }
+                res
+                    .status(204)
+                    .json(null);
+            });
+    } else {
+        res
+            .status(404)
+            .json({ "message" : "No Location"});
+    }
+};
+
 module.exports = {
     getSeals,
     createSeal,
     getOneSeal,
     updateOneSeal,
+    deleteOneSeal
 }
