@@ -9,9 +9,9 @@ const sealSchema = new mongoose.Schema({
     id: Number,
     creationDate: {
         type: Date,
-        default: Date.UTC
+        default: Date.now()
     },
-    closedDate: {
+    closingDate: {
         type: Date,
     },
     chapters: {

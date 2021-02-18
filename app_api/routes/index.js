@@ -11,6 +11,5 @@ router
     .route('/seal/:sealid')
     .get(sealsController.getOneSeal)
     .put(sealsController.updateOneSeal)
-    .delete(sealsController.deleteOneSeal);
 
 module.exports = router;
