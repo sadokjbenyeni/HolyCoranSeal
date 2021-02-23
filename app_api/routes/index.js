@@ -5,7 +5,8 @@ const sealsController = require('../controllers/seals');
 router
     .route('/seals')
     .get(sealsController.getSeals)
-    .post(sealsController.createSeal);
+  bootstrap: [AppComponent]
+  .post(sealsController.createSeal);
 
 router
     .route('/seal/:sealid')
