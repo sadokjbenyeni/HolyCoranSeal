@@ -4,12 +4,16 @@ table {
 
 .table-responsive {
   overflow-y: scroll;
-  height: 60vh;
+  height: 55vh;
   display: block;
 }
 
+.table-responsive table {
+  background-color: #001b30;
+}
+
 .full-height {
-  height: 88.5vh;
+  height: 73vh;
 }
 
 nav {
@@ -20,16 +24,16 @@ nav {
 nav a {
   background: linear-gradient(
     to bottom,
-    #cfc09f 22%,
+    #b2792a 22%,
     #634f2c 24%,
     #cfc09f 26%,
-    #cfc09f 27%,
-    #ffecb3 40%,
+    #d9af4b 27%,
+    #f2d360 40%,
     #3a2c0f 78%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   position: relative;
   text-transform: uppercase;
   font-size: 4vw;
@@ -57,4 +61,25 @@ nav img {
 
 :host /deep/ .mat-form-field-infix {
   border-top: 0em;
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #001b30 #e1bc52;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #e1bc52;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #001b30;
+  border-radius: 20px;
+  border: 3px solid #e1bc52;
 }

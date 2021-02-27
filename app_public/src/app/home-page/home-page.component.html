@@ -1,16 +1,25 @@
 <nav class="navbar navbar-light sticky-top fixed-top">
   <a class="navbar-brand" href="/">ختم القرآن الكريم</a>
 </nav>
-<mat-card>
+<mat-card style="  background: linear-gradient(
+  to bottom,
+  #d5a948 22%,
+  #634f2c 24%,
+  #cfc09f 26%,
+  #d9af4b 27%,
+  #f2d360 40%,
+  #b2792a 78%
+);">
   <div class="row full-height">
-    <mat-card class="col-4">
+    <mat-card class="col-4" style="background-color: #001b30;">
       <mat-card-header>
-        <mat-card-title>سلسلة الختمات</mat-card-title>
+        <mat-card-title style="color: #e1bc52;">سلسلة الختمات</mat-card-title>
         <mat-card-subtitle>ابحث عن ختمة أو إفتتح واحدة جديدة</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <div class="example-button-container">
-          <button mat-fab color="warn" aria-label="Example icon button with a home icon">
+          <button mat-fab color="warn" style="    color: #001b30;
+          background-color: #d1a646;" aria-label="Example icon button with a home icon">
             <mat-icon>add</mat-icon>
           </button>
         </div>
@@ -30,7 +39,7 @@
       </mat-card-content>
     </mat-card>
 
-    <mat-card class="col-8">
+    <mat-card class="col-8" style="background-color: #002d4e;">
       <div class="row">
         <mat-card-actions class="col-6">
           <form style="float: right;">
@@ -42,7 +51,7 @@
           <button mat-button>إقرأ</button>
         </mat-card-actions>
         <mat-card-header class="col-6">
-          <mat-card-title>ختمة 1</mat-card-title>
+          <mat-card-title style="color: #e1bc52;">ختمة 1</mat-card-title>
           <mat-card-subtitle>إختر جزء أو أكثر لقرآءته</mat-card-subtitle>
         </mat-card-header>
       </div>
@@ -65,22 +74,22 @@
             </ng-container>
 
             <ng-container matColumnDef="reader">
-              <th mat-header-cell *matHeaderCellDef> القارئ </th>
+              <th mat-header-cell *matHeaderCellDef style="color: #e1bc52;"> القارئ </th>
               <td mat-cell *matCellDef="let element"> {{element.reader}} </td>
             </ng-container>
 
             <ng-container matColumnDef="part">
-              <th mat-header-cell *matHeaderCellDef> الجزء </th>
+              <th mat-header-cell *matHeaderCellDef style="color: #e1bc52;"> الجزء </th>
               <td mat-cell *matCellDef="let element"> {{element.part}} </td>
             </ng-container>
 
             <ng-container matColumnDef="chapter">
-              <th mat-header-cell *matHeaderCellDef> السورة </th>
+              <th mat-header-cell *matHeaderCellDef style="color: #e1bc52;"> السورة </th>
               <td mat-cell *matCellDef="let element" class="font"> {{element.chapter}} </td>
             </ng-container>
 
             <ng-container matColumnDef="id">
-              <th mat-header-cell *matHeaderCellDef> الترتيب </th>
+              <th mat-header-cell *matHeaderCellDef style="color: #e1bc52;"> الترتيب </th>
               <td mat-cell *matCellDef="let element"> {{element.id}} </td>
             </ng-container>
 
