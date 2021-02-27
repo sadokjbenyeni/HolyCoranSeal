@@ -1,81 +1,94 @@
-<p>
-  <mat-toolbar color="primary">
-    <span>My Application</span>
-  </mat-toolbar>
-</p>
-<div class="row">
-  <mat-card class="col-3">
-    <mat-card-header>
-      <mat-card-title>List of Seals</mat-card-title>
-      <mat-card-subtitle>Find any open seal down here</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-selection-list [multiple]="false">
-        <mat-list-option>Seal 1</mat-list-option>
-        <mat-list-option>Seal 2</mat-list-option>
-        <mat-list-option>Seal 3</mat-list-option>
-      </mat-selection-list>
-    </mat-card-content>
-  </mat-card>
+<nav class="navbar navbar-light sticky-top fixed-top">
+  <a class="navbar-brand" href="/">ختم القرآن الكريم</a>
+  <img src="../../assets/images/quran.png" width="30" height="30" class="d-inline-block align-top" alt="">
+</nav>
+<mat-card>
+  <div class="row full-height">
+    <mat-card class="col-4">
+      <mat-card-header>
+        <mat-card-title>سلسلة الختمات</mat-card-title>
+        <mat-card-subtitle>ابحث عن ختمة أو إفتتح واحدة جديدة</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="example-button-container">
+          <button mat-fab color="warn" aria-label="Example icon button with a home icon">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+      <mat-card-content>
+        <mat-selection-list [multiple]="false">
+          <mat-list-option>Seal 1<button mat-icon-button>
+              <mat-icon>delete</mat-icon>
+            </button></mat-list-option>
+          <mat-list-option>Seal 2<button mat-icon-button>
+              <mat-icon>delete</mat-icon>
+            </button></mat-list-option>
+          <mat-list-option>Seal 3<button mat-icon-button>
+              <mat-icon>delete</mat-icon>
+            </button></mat-list-option>
+        </mat-selection-list>
+      </mat-card-content>
+    </mat-card>
 
-  <mat-card class="col-9">
-    <mat-card-header>
-      <mat-card-title>Seal 1</mat-card-title>
-      <mat-card-subtitle>Choose chapters to read</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
+    <mat-card class="col-8">
+      <mat-card-header>
+        <mat-card-title>Seal 1</mat-card-title>
+        <mat-card-subtitle>إختر جزء أو أكثر لقرآءته</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
 
-      <div class="example-container table-responsive mat-elevation-z8">
-        <table mat-table [dataSource]="dataSource">
+        <div class="example-container table-responsive mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource">
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? masterToggle() : null"
+                  [checked]="selection.hasValue() && isAllSelected()"
+                  [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+                </mat-checkbox>
+              </th>
+              <td mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                  [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                </mat-checkbox>
+              </td>
+            </ng-container>
 
-          <ng-container matColumnDef="select">
-            <th mat-header-cell *matHeaderCellDef>
-              <mat-checkbox (change)="$event ? masterToggle() : null"
-                [checked]="selection.hasValue() && isAllSelected()"
-                [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
-              </mat-checkbox>
-            </th>
-            <td mat-cell *matCellDef="let row">
-              <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
-                [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
-              </mat-checkbox>
-            </td>
-          </ng-container>
+            <ng-container matColumnDef="reader">
+              <th mat-header-cell *matHeaderCellDef> القارئ </th>
+              <td mat-cell *matCellDef="let element"> {{element.reader}} </td>
+            </ng-container>
 
-          <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef> Id </th>
-            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-          </ng-container>
+            <ng-container matColumnDef="part">
+              <th mat-header-cell *matHeaderCellDef> الجزء </th>
+              <td mat-cell *matCellDef="let element"> {{element.part}} </td>
+            </ng-container>
 
-          <ng-container matColumnDef="chapter">
-            <th mat-header-cell *matHeaderCellDef> Chapter </th>
-            <td mat-cell *matCellDef="let element"> {{element.chapter}} </td>
-          </ng-container>
+            <ng-container matColumnDef="chapter">
+              <th mat-header-cell *matHeaderCellDef> السورة </th>
+              <td mat-cell *matCellDef="let element" class="font"> {{element.chapter}} </td>
+            </ng-container>
 
-          <ng-container matColumnDef="part">
-            <th mat-header-cell *matHeaderCellDef> Part </th>
-            <td mat-cell *matCellDef="let element"> {{element.part}} </td>
-          </ng-container>
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> الترتيب </th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
 
-          <ng-container matColumnDef="reader">
-            <th mat-header-cell *matHeaderCellDef> Reader </th>
-            <td mat-cell *matCellDef="let element"> {{element.reader}} </td>
-          </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
+          </table>
+        </div>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
-        </table>
-      </div>
-
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>Read</button>
-      <form>
-        <mat-form-field>
-          <mat-label>Reader's Name</mat-label>
-          <input matInput placeholder="foulen">
-        </mat-form-field>
-      </form>
-    </mat-card-actions>
-  </mat-card>
-</div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>Read</button>
+        <form>
+          <mat-form-field>
+            <mat-label>Reader's Name</mat-label>
+            <input matInput placeholder="foulen">
+          </mat-form-field>
+        </form>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</mat-card>

@@ -145,7 +145,7 @@ const SEAL_DATA: SealTable[] = [
 })
 export class HomePageComponent implements OnInit {
 
-  displayedColumns: string[] = ['select', 'id', 'chapter', 'part', 'reader'];
+  displayedColumns: string[] = ['select', 'reader', 'part', 'chapter', 'id'];
   dataSource = new MatTableDataSource<SealTable>(SEAL_DATA);
   selection = new SelectionModel<SealTable>(true, []);
 

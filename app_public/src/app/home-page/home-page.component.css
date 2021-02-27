@@ -3,31 +3,28 @@ table {
 }
 
 .table-responsive {
+  overflow-y: scroll;
+  height: 60vh;
   display: block;
-  width: 100%;
-  overflow-x: auto;
 }
 
-.mat-table {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 1rem;
-  display: table;
-  border-collapse: collapse;
-  margin: 0px;
+.full-height {
+  height: 88.5vh;
 }
-.mat-row,
-.mat-header-row {
-  display: table-row;
+
+nav {
+  background-color: #274b09;
 }
-.mat-cell,
-.mat-header-cell {
-  word-wrap: initial;
-  display: table-cell;
-  padding: 0px 5px;
-  line-break: unset;
-  width: auto;
-  white-space: nowrap;
-  overflow: hidden;
-  vertical-align: middle;
+
+.navbar-brand {
+  color: beige;
+  margin: 10px;
+}
+
+nav img {
+  float: right;
+}
+
+.mat-list-item {
+  display: inline;
 }
