@@ -8,17 +8,63 @@ table {
   display: block;
 }
 
+
 .table-responsive table {
   background-color: #001b30;
 }
 
-.full-height {
-  height: 73vh;
+@media (min-height: 550px) {
+  .full-height {
+    height: 40vh;
+  }
 }
 
-nav {
-  background-image: url(../../assets/images/navbar.png);
-  height: 16em;
+@media (min-height: 800px) {
+  .full-height {
+    height: 78vh;
+  }
+}
+
+@media (min-height: 1200px) {
+  .full-height {
+    height: 80vh;
+  }
+}
+
+
+@media (min-width: 300px) {
+  nav {
+    background-image: url(../../assets/images/navbar-xsmall.png);
+    height: 7em;
+  }
+}
+
+@media (min-width: 600px) {
+  nav {
+    background-image: url(../../assets/images/navbar-small.png);
+    height: 10em;
+  }
+}
+
+@media (min-width: 900px) {
+  nav {
+    background-image: url(../../assets/images/navbar-medium.png);
+    height: 14em;
+  }
+}
+
+@media (min-width: 1200px) {
+  nav {
+    background-image: url(../../assets/images/navbar-large.png);
+    height: 16em;
+  }
+}
+
+@media (min-width: 1500px) {
+  nav {
+    background-image: url(../../assets/images/navbar-xlarge.png);
+    height: 16.5em;
+  }
 }
 
 nav a {
