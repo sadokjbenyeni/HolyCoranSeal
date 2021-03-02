@@ -8,7 +8,6 @@ table {
   display: block;
 }
 
-
 .table-responsive table {
   background-color: #001b30;
 }
@@ -21,16 +20,15 @@ table {
 
 @media (min-height: 800px) {
   .full-height {
-    height: 78vh;
+    height: 84vh;
   }
 }
 
 @media (min-height: 1200px) {
   .full-height {
-    height: 80vh;
+    height: 88vh;
   }
 }
-
 
 @media (min-width: 300px) {
   nav {
@@ -107,6 +105,7 @@ nav img {
 
 :host /deep/ .mat-form-field-infix {
   border-top: 0em;
+  text-align-last: right;
 }
 
 /* Works on Firefox */
@@ -128,4 +127,12 @@ nav img {
   background-color: #001b30;
   border-radius: 20px;
   border: 3px solid #e1bc52;
+}
+
+.mat-header-cell {
+  text-align: center;
+}
+
+.mat-cell {
+  text-align: center;
 }

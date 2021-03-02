@@ -11,18 +11,20 @@
   #b2792a 78%
 );">
   <div class="row full-height">
-    <mat-card class="col-4" style="background-color: #001b30;">
-      <mat-card-header>
-        <mat-card-title style="color: #e1bc52;">سلسلة الختمات</mat-card-title>
-        <mat-card-subtitle>ابحث عن ختمة أو إفتتح واحدة جديدة</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <div class="example-button-container">
+    <mat-card class="col-sm-4" style="background-color: #001b30;">
+      <div class="row">
+        <div class="example-button-container col-3" style="text-align: end;">
           <button mat-fab color="warn" style="    color: #001b30;
-          background-color: #d1a646;" aria-label="Example icon button with a home icon">
+        background-color: #d1a646;" aria-label="Example icon button with a home icon">
             <mat-icon>add</mat-icon>
           </button>
         </div>
+        <mat-card-header class="col-9" style="justify-content: flex-end;">
+          <mat-card-title style="color: #e1bc52; text-align: end;">سلسلة الختمات</mat-card-title>
+          <mat-card-subtitle style="text-align: end;">ابحث عن ختمة أو إفتتح واحدة جديدة</mat-card-subtitle>
+        </mat-card-header>
+      </div>
+      <mat-card-content>
       </mat-card-content>
       <mat-card-content>
         <mat-selection-list [multiple]="false">
@@ -39,24 +41,23 @@
       </mat-card-content>
     </mat-card>
 
-    <mat-card class="col-8" style="background-color: #002d4e;">
+    <mat-card class="col-sm-8" style="background-color: #002d4e;">
       <div class="row">
-        <mat-card-actions class="col-6">
-          <form style="float: right;">
-            <mat-form-field>
-              <mat-label>إسم القارئ</mat-label>
+        <mat-card-actions class="col-7">
+          <form style="float: right; text-align: center; width: 60%;">
+            <mat-form-field style="width: 50%;">
+              <mat-label >إسم القارئ</mat-label>
               <input matInput placeholder="foulen">
             </mat-form-field>
           </form>
-          <button mat-button>إقرأ</button>
+          <button mat-button style="padding-left: 15%;">إقرأ</button>
         </mat-card-actions>
-        <mat-card-header class="col-6">
-          <mat-card-title style="color: #e1bc52;">ختمة 1</mat-card-title>
-          <mat-card-subtitle>إختر جزء أو أكثر لقرآءته</mat-card-subtitle>
+        <mat-card-header class="col-5" style="justify-content: flex-end;">
+          <mat-card-title style="color: #e1bc52; text-align: end;">ختمة 1</mat-card-title>
+          <mat-card-subtitle style="text-align: end;">إختر جزء أو أكثر لقرآءته</mat-card-subtitle>
         </mat-card-header>
       </div>
       <mat-card-content>
-
         <div class="example-container table-responsive mat-elevation-z8">
           <table mat-table [dataSource]="dataSource">
             <ng-container matColumnDef="select">

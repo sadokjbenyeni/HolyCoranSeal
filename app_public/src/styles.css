@@ -8,3 +8,24 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #001b30 #e1bc52;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #e1bc52;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #001b30;
+  border-radius: 20px;
+  border: 3px solid #e1bc52;
+}
