@@ -18,7 +18,9 @@ import { MatTableModule } from '@angular/material/table';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+
 @NgModule({
   declarations: [
     HomePageComponent
@@ -41,7 +43,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatListModule,
     MatRadioModule,
     MatTableModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [HomePageComponent]
