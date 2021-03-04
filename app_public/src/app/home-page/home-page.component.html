@@ -43,13 +43,20 @@
 
     <mat-card class="col-sm-9" style="background-color: #002d4e;">
       <div class="row">
-        <mat-card-actions class="col-4">
-          <button mat-button style="padding-left: 35%;">إقرأ</button>
+        <mat-card-actions class="col-4 row">
+          <button mat-button >سجّل</button>
+          <button mat-button (click)="openDialog()">إقرأ الدّعاء</button>
         </mat-card-actions>
         <mat-card-header class="col-8" style="justify-content: flex-end;">
           <mat-card-title style="color: #e1bc52; text-align: end;">ختمة 1</mat-card-title>
           <mat-card-subtitle style="text-align: end;">إختر جزء أو أكثر لقرآءته</mat-card-subtitle>
         </mat-card-header>
+      </div>
+      <div>
+        <span style="float: right;">تقدّم الختمة</span>
+        <mat-progress-bar style="width: 75%; display: inline-flex; height: 6px;" color='accent' mode="determinate"
+          value="40"></mat-progress-bar>
+        <span style="float: left;">40%</span>
       </div>
       <mat-card-content>
         <div class="example-container table-responsive mat-elevation-z8">
@@ -64,7 +71,8 @@
                       {{chapterState.viewValue}}
                     </mat-option>
                   </mat-select>
-                </mat-form-field> </td>
+                </mat-form-field>
+              </td>
             </ng-container>
 
             <ng-container matColumnDef="reader">
@@ -98,7 +106,6 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
         </div>
-
       </mat-card-content>
     </mat-card>
   </div>

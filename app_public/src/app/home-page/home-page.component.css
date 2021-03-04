@@ -20,7 +20,7 @@ table {
 
 @media (min-height: 800px) {
   .full-height {
-    height: 84vh;
+    height: 76vh;
   }
 }
 
@@ -32,35 +32,35 @@ table {
 
 @media (min-width: 300px) {
   nav {
-    background-image: url(../../assets/images/navbar-xsmall.png);
+    background-image: url(../../assets/images/navbar/navbar-xsmall.png);
     height: 7em;
   }
 }
 
 @media (min-width: 600px) {
   nav {
-    background-image: url(../../assets/images/navbar-small.png);
+    background-image: url(../../assets/images/navbar/navbar-small.png);
     height: 10em;
   }
 }
 
 @media (min-width: 900px) {
   nav {
-    background-image: url(../../assets/images/navbar-medium.png);
+    background-image: url(../../assets/images/navbar/navbar-medium.png);
     height: 14em;
   }
 }
 
 @media (min-width: 1200px) {
   nav {
-    background-image: url(../../assets/images/navbar-large.png);
+    background-image: url(../../assets/images/navbar/navbar-large.png);
     height: 16em;
   }
 }
 
 @media (min-width: 1500px) {
   nav {
-    background-image: url(../../assets/images/navbar-xlarge.png);
+    background-image: url(../../assets/images/navbar/navbar-xlarge.png);
     height: 16.5em;
   }
 }

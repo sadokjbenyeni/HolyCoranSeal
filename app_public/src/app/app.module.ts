@@ -20,10 +20,13 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { DialogPrayerComponent } from './dialog-prayer/dialog-prayer.component';
 
 @NgModule({
   declarations: [
-    HomePageComponent
+    HomePageComponent,
+    DialogPrayerComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatRadioModule,
     MatTableModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [HomePageComponent]

@@ -2,6 +2,8 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
 import { Component, OnInit } from '@angular/core';
 import { SealDataService } from '../seal-data.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogPrayerComponent } from '../dialog-prayer/dialog-prayer.component';
 export class Seal {
   id: number;
   creationDate: Date;
@@ -61,11 +63,11 @@ export class HomePageComponent implements OnInit {
     { value: 'notRead', viewValue: 'لم تقرأ' },
     { value: 'reading', viewValue: 'في طور القراءة' },
     { value: 'read', viewValue: 'قرأت' }
-  ]
+  ];
   displayedColumns: string[] = ['progress', 'reader', 'part', 'chapter', 'id'];
   dataSource = new MatTableDataSource<SealTable>(SEAL_DATA);
 
-  constructor(private sealDataService: SealDataService) { }
+  constructor(private sealDataService: SealDataService, public dialog: MatDialog) { }
 
   public seals: Seal[];
 
@@ -77,5 +79,13 @@ export class HomePageComponent implements OnInit {
     this.sealDataService
       .getSeals()
       .then(foundSeals => this.seals = foundSeals);
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogPrayerComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }
