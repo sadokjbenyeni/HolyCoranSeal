@@ -14,19 +14,19 @@ table {
 
 @media (min-height: 550px) {
   .full-height {
-    height: 40vh;
+    height: 34vh;
   }
 }
 
 @media (min-height: 800px) {
   .full-height {
-    height: 76vh;
+    height: 75vh;
   }
 }
 
 @media (min-height: 1200px) {
   .full-height {
-    height: 88vh;
+    height: 81vh;
   }
 }
 
@@ -136,4 +136,16 @@ nav img {
 .mat-cell {
   text-align: center;
   height: 12vh;
+}
+
+/* :host /deep/ .mat-progress-bar{
+  background-color: #001b30;
+} */
+
+:host /deep/.mat-progress-bar.mat-accent .mat-progress-bar-buffer {
+  background-color: #b1a47e;
+}
+
+:host /deep/.mat-progress-bar.mat-accent .mat-progress-bar-fill::after {
+  background-color: #002d4e;
 }

@@ -84,6 +84,7 @@ export class HomePageComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogPrayerComponent);
 
+    // tslint:disable-next-line: deprecation
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });

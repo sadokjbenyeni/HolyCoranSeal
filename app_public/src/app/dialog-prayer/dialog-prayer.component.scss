@@ -1,7 +1,10 @@
 .back-image {
-  background-image: url(../../assets/images/prayer-background.jpg);
+  background-image: url(../../assets/images/prayer-background.png);
 }
 
 p {
   text-align: center;
+  -webkit-text-stroke-width: 0.2px;
+  -webkit-text-stroke-color: #e1bc52;
+  font-size: 1vw;
 }
