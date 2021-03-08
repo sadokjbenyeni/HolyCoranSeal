@@ -11,17 +11,11 @@
 .site-footer a {
   color: #737373;
 }
-.site-footer a:hover {
-  color: #3366cc;
-  text-decoration: none;
-}
-.site-footer .social-icons {
-  text-align: right;
-}
+
 .site-footer .social-icons a {
   width: 30px;
   height: 30px;
-  line-height: 40px;
+  line-height: 30px;
   margin-left: 6px;
   margin-right: 0;
   border-radius: 100%;
@@ -40,21 +34,24 @@
     padding-bottom: 30;
   }
   .row .cp-text {
-      width: 70%;
+    width: 70%;
   }
   .row .so-icon {
-      width: 30%;
+    width: 30%;
   }
 
   .site-footer .copyright-text,
   .site-footer .social-icons {
     text-align: start;
     font-size: 10px;
-
   }
-  .site-footer .social-icons a{
-      width: 15px;
-      height: 15px;
+  .site-footer .social-icons a {
+    width: 15px;
+    height: 15px;
+  }
+
+  .site-footer .social-icons a i {
+    vertical-align: top;
   }
 }
 .social-icons {
