@@ -1,9 +1,9 @@
-import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
 import { Component, OnInit } from '@angular/core';
 import { SealDataService } from '../seal-data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogPrayerComponent } from '../dialog-prayer/dialog-prayer.component';
+import { Observable } from 'rxjs';
 export class Seal {
   id: number;
   creationDate: Date;
@@ -78,7 +78,8 @@ export class HomePageComponent implements OnInit {
   private getSeals(): void {
     this.sealDataService
       .getSeals()
-      .then(foundSeals => this.seals = foundSeals);
+      .subscribe(foundSeals => this.seals = foundSeals);
+    // .then(foundSeals => this.seals = foundSeals);
   }
 
   openDialog(): void {

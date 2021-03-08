@@ -27,16 +27,9 @@
       <mat-card-content>
       </mat-card-content>
       <mat-card-content>
-        <mat-selection-list [multiple]="false">
-          <mat-list-option>ختمة 1<button mat-icon-button>
-              <!-- <mat-icon>delete</mat-icon> -->
-            </button></mat-list-option>
-          <mat-list-option>ختمة 2<button mat-icon-button>
-              <!-- <mat-icon>delete</mat-icon> -->
-            </button></mat-list-option>
-          <mat-list-option>ختمة 3<button mat-icon-button>
-              <!-- <mat-icon>delete</mat-icon> -->
-            </button></mat-list-option>
+        <mat-selection-list *ngFor="let seal of seals" [multiple]="false">
+          <mat-list-option>{{seal.id}} {{seal.title}}<button mat-icon-button><i class="fa fa-delete"></i>
+          </button></mat-list-option>
         </mat-selection-list>
       </mat-card-content>
     </mat-card>
@@ -44,7 +37,7 @@
     <mat-card class="col-sm-9" style="background-color: #002d4e;">
       <div class="row">
         <mat-card-actions class="col-6 row">
-          <button mat-button >سجّل</button>
+          <button mat-button>سجّل</button>
           <button mat-button (click)="openDialog()">إقرأ الدّعاء</button>
         </mat-card-actions>
         <mat-card-header class="col-6" style="justify-content: flex-end;">
@@ -55,8 +48,7 @@
       <div class="row" style="background-color: #af7428;">
         <span class="col-1" style="color: #001b30">90%</span>
         <mat-progress-bar class="col-7" style="height: 6px; margin-top: 1vh;
-        " color='accent' mode="determinate"
-          value="90"></mat-progress-bar>
+        " color='accent' mode="determinate" value="90"></mat-progress-bar>
         <span class="col-4" style="text-align: center; color: #001b30;">تقدّم الختمة</span>
 
       </div>

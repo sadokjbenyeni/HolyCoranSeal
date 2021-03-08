@@ -79,7 +79,7 @@ const updateOneSeal = (req, res) => {
                     .status(400)
                     .json(err);
             }
-            if (req.body.chapterid && req.bodu.reader) {
+            if (req.body.chapterid && req.body.reader) {
                 seal.chapters[req.body.chapterid].reader = req.body.reader
             } else {
                 return res
@@ -94,7 +94,7 @@ const updateOneSeal = (req, res) => {
                 } else {
                     res
                         .status(200)
-                        .json(updatedSeal)
+                        .json(updatedSeal);
                 }
             });
         });

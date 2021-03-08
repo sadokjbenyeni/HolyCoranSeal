@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Seal } from './home-page/home-page.component';
-
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,9 +11,9 @@ export class SealDataService {
 
   private apiBaseUrl = 'http://localhost:3000/api';
 
-  public getSeals(): Promise<Seal[]> {
+  public getSeals(): Observable<any> {
     const url = `${this.apiBaseUrl}/seals`;
-    return this.http.get(url).toPromise().then(response => response as Seal[]).catch(this.handleError);
+    return this.http.get(url);
   }
 
   private handleError(error: any): Promise<any> {
