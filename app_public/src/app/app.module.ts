@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,12 +22,18 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DialogPrayerComponent } from './dialog-prayer/dialog-prayer.component';
 import { FooterComponent } from './footer/footer.component';
+import { PageHeaderComponent } from './page-header/page-header.component';
+import { SealsListComponent } from './seals-list/seals-list.component';
+import { SealDetailsComponent } from './seal-details/seal-details.component';
 
 @NgModule({
   declarations: [
     HomePageComponent,
     DialogPrayerComponent,
-    FooterComponent
+    FooterComponent,
+    PageHeaderComponent,
+    SealsListComponent,
+    SealDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +55,12 @@ import { FooterComponent } from './footer/footer.component';
     MatFormFieldModule,
     MatSelectModule,
     MatProgressBarModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: HomePageComponent
+      }
+    ])
   ],
   providers: [],
   bootstrap: [HomePageComponent]

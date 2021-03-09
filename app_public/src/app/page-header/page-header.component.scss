@@ -1,0 +1,68 @@
+@media (min-width: 300px) {
+  nav {
+    background-image: url(../../assets/images/navbar/navbar-xsmall.png);
+    height: 7em;
+  }
+}
+
+@media (min-width: 600px) {
+  nav {
+    background-image: url(../../assets/images/navbar/navbar-small.png);
+    height: 10em;
+  }
+}
+
+@media (min-width: 900px) {
+  nav {
+    background-image: url(../../assets/images/navbar/navbar-medium.png);
+    height: 14em;
+  }
+}
+
+@media (min-width: 1200px) {
+  nav {
+    background-image: url(../../assets/images/navbar/navbar-large.png);
+    height: 16em;
+  }
+}
+
+@media (min-width: 1500px) {
+  nav {
+    background-image: url(../../assets/images/navbar/navbar-xlarge.png);
+    height: 16.5em;
+  }
+}
+
+nav a {
+  background: linear-gradient(
+    to bottom,
+    #b2792a 22%,
+    #634f2c 24%,
+    #cfc09f 26%,
+    #d9af4b 27%,
+    #f2d360 40%,
+    #3a2c0f 78%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 4vw;
+  margin: 0;
+  font-weight: 200;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-brand {
+  color: beige;
+  margin: 10px;
+}
+
+nav img {
+  float: right;
+}
