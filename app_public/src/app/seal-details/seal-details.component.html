@@ -5,7 +5,7 @@
             <button mat-button (click)="openDialog()">إقرأ الدّعاء</button>
         </mat-card-actions>
         <mat-card-header class="col-6" style="justify-content: flex-end;">
-            <mat-card-title style="color: #e1bc52; text-align: end;">ختمة 1</mat-card-title>
+            <mat-card-title style="color: #e1bc52; text-align: end;">{{content.tableHeader.title}} {{content.tableHeader.id}}</mat-card-title>
             <mat-card-subtitle style="text-align: end;">إختر جزء أو أكثر لقرآءته</mat-card-subtitle>
         </mat-card-header>
     </div>
@@ -18,7 +18,7 @@
     </div>
     <mat-card-content>
         <div class="example-container table-responsive mat-elevation-z8">
-            <table mat-table [dataSource]="dataSource">
+            <table mat-table [dataSource]="content.sealdetails">
                 <ng-container matColumnDef="progress">
                     <th mat-header-cell *matHeaderCellDef style="color: #e1bc52;"> التقدم </th>
                     <td mat-cell *matCellDef="let element">

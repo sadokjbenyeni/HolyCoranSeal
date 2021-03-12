@@ -1,18 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { SealDataService } from '../seal-data.service';
-
-export class Seal {
-  id: number;
-  creationDate: Date;
-  closingDate: Date;
-  chapters: Chapter[];
-}
-
-export class Chapter {
-  id: number;
-  reader: string;
-}
-
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Seal } from '../home-page/home-page.component';
 @Component({
   selector: 'app-seals-list',
   templateUrl: './seals-list.component.html',
@@ -20,20 +7,14 @@ export class Chapter {
 })
 export class SealsListComponent implements OnInit {
 
-  constructor(private sealDataService: SealDataService) { }
-
-  public seals: Seal[];
-  title = 'سلسلة الختمات';
-  subtitle = 'ابحث عن ختمة أو إفتتح واحدة جديدة';
+  @Input() content: any;
+  @Output() selectedSeal = new EventEmitter<any>();
+  constructor() { }
 
   ngOnInit(): void {
-    this.getSeals();
   }
 
-  private getSeals(): void {
-    this.sealDataService
-      .getSeals()
-      .subscribe((foundSeals: Seal[]) => this.seals = foundSeals);
+  shareSelectedSeal(seal: Seal): void {
+    this.selectedSeal.emit(seal);
   }
-
 }

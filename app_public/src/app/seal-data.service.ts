@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient,  } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,6 +11,11 @@ export class SealDataService {
 
   public getSeals(): any {
     const url = `${this.apiBaseUrl}/seals`;
+    return this.http.get(url);
+  }
+
+  public getSealById(sealId: number): any {
+    const url = `${this.apiBaseUrl}/seal/${sealId}`;
     return this.http.get(url);
   }
   private handleError(error: any): Promise<any> {

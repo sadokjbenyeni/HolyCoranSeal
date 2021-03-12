@@ -57,7 +57,7 @@ const createSeal = (req, res) => {
 
 const getOneSeal = (req, res) => {
     Seal
-        .findById(req.params.sealid)
+        .findOne({ id: req.params.sealid })
         .exec((err, seal) => {
             if (!seal) {
                 return res
@@ -65,7 +65,7 @@ const getOneSeal = (req, res) => {
                     .json({ "message": "Seal not found" });
             } else if (err) {
                 return res
-                    .status(404)
+                    .status(500)
                     .json(err);
             }
             res

@@ -6,16 +6,15 @@
             </button>
         </div>
         <mat-card-header class="col-9" style="justify-content: flex-end;">
-            <mat-card-title style="color: #e1bc52; text-align: end;">{{title}}</mat-card-title>
-            <mat-card-subtitle style="text-align: end;">{{subtitle}}</mat-card-subtitle>
+            <mat-card-title style="color: #e1bc52; text-align: end;">سلسلة الختمات</mat-card-title>
+            <mat-card-subtitle style="text-align: end;">ابحث عن ختمة أو إفتتح واحدة جديدة</mat-card-subtitle>
         </mat-card-header>
     </div>
     <mat-card-content>
     </mat-card-content>
     <mat-card-content>
-        <mat-selection-list *ngFor="let seal of seals" [multiple]="false">
-            <mat-list-option>{{seal.id}} {{seal.title}}<button mat-icon-button>
-                </button></mat-list-option>
+        <mat-selection-list *ngFor="let seal of content.sealslist" [multiple]="false">
+            <mat-list-option (click)="shareSelectedSeal(seal)">{{seal.id}} {{seal.title}}</mat-list-option>
         </mat-selection-list>
     </mat-card-content>
 </mat-card>
