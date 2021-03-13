@@ -1,8 +1,9 @@
 <mat-card style="background-color: #001b30;">
     <div class="row">
         <div class="example-button-container col-3" style="text-align: end;">
-            <button mat-fab color="warn" style="    color: #001b30;
+            <button (click)="openDialog()" mat-fab color="warn" style="color: #001b30;
       background-color: #d1a646;" aria-label="Example icon button with a home icon">
+                <i class="fa fa-plus"></i>
             </button>
         </div>
         <mat-card-header class="col-9" style="justify-content: flex-end;">

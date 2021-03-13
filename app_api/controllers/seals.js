@@ -1,47 +1,30 @@
 const mongoose = require('mongoose');
 const Seal = mongoose.model('Seal')
 
-const getSeals = async (req, res) => {
+const getSeals = (req, res) => {
 
-    try {
-        let seals = await Seal.find();
-        if (!seals) {
-            return res
-                .status(404)
-                .json({ "message": "No Seals found" })
-        }
-        res
-            .status(200)
-            .json(seals);
-    }
-    catch (err) {
-        return res
-            .status(500)
-            .json(err)
-    }
-    // let seals = await Seal.find();
-    // Seal
-    //     .find()
-    //     .exec((err, seals) => {
-    //         if (!seals) {
-    //             return res
-    //                 .status(404)
-    //                 .json({ "message": "No Seals found" })
-    //         }
-    //         else if (err) {
-    //             return res
-    //                 .status(404)
-    //                 .json(err)
-    //         }
-    //         res
-    //             .status(200)
-    //             .json(seals);
-    //     })
+    Seal
+        .find()
+        .exec((err, seals) => {
+            if (!seals) {
+                return res
+                    .status(404)
+                    .json({ "message": "No Seals found" })
+            }
+            else if (err) {
+                return res
+                    .status(404)
+                    .json(err)
+            }
+            res
+                .status(200)
+                .json(seals);
+        })
 };
 
 const createSeal = (req, res) => {
     Seal.create({
-        id: req.body.id,
+        title: req.body.title
     }, (err, seal) => {
         if (err) {
             res

@@ -25,6 +25,9 @@ import { FooterComponent } from './footer/footer.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { SealsListComponent } from './seals-list/seals-list.component';
 import { SealDetailsComponent } from './seal-details/seal-details.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { NewSealDialogComponent } from './new-seal-dialog/new-seal-dialog.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import { SealDetailsComponent } from './seal-details/seal-details.component';
     FooterComponent,
     PageHeaderComponent,
     SealsListComponent,
-    SealDetailsComponent
+    SealDetailsComponent,
+    NewSealDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +59,8 @@ import { SealDetailsComponent } from './seal-details/seal-details.component';
     MatFormFieldModule,
     MatSelectModule,
     MatProgressBarModule,
+    MatMenuModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path: '',
