@@ -4,8 +4,8 @@ const sealsController = require('../controllers/seals');
 
 router
   .route('/seals')
-  .get(sealsController.getSeals)
-  .post(sealsController.createSeal);
+  .post(sealsController.createSeal)
+  .get(sealsController.getSeals);
 
 router
   .route('/seal/:sealid')

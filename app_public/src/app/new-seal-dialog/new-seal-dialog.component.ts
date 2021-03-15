@@ -10,8 +10,8 @@ import { SealDataService } from '../seal-data.service';
 export class NewSealDialogComponent implements OnInit {
 
   constructor(private sealDataService: SealDataService,
-              public dialogRef: MatDialogRef<NewSealDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: string) { }
+    public dialogRef: MatDialogRef<NewSealDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: string) { }
 
   ngOnInit(): void {
   }

@@ -28,7 +28,7 @@ const createSeal = (req, res) => {
     }, (err, seal) => {
         if (err) {
             res
-                .status(400)
+                .status(500)
                 .json(err);
         } else {
             res
