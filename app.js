@@ -25,6 +25,8 @@ app.use('/fa', express.static(path.join(__dirname, 'node_modules/@fortawesome/fo
 app.use('/api', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.setHeader("Access-Control-Allow-Methods","PUT, POST, GET, DELETE, PATCH, OPTIONS");
+
   next();
 });
 app.use('/', serverRouter);

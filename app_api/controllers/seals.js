@@ -66,7 +66,7 @@ const updateOneSeal = (req, res) => {
             });
     }
     Seal
-        .findById(req.params.sealid)
+        .findOne({ id: req.params.sealid })
         .select('chapters')
         .exec((err, seal) => {
             if (!seal) {
@@ -80,12 +80,16 @@ const updateOneSeal = (req, res) => {
                     .status(400)
                     .json(err);
             }
-            if (req.body.chapterid && req.body.reader) {
-                seal.chapters[req.body.chapterid].reader = req.body.reader
-            } else {
-                return res
-                    .status(404)
-                    .json({ "message": "Both reader and chapter id are required" });
+            if (req.body.readers) {
+                for (const key of Object.keys(req.body.readers)) {
+                    seal.chapters[key - 1].reader = req.body.readers[key];
+                }
+            }
+            if (req.body.states) {
+                for (const key in req.body.states) {
+                    seal.chapters[key - 1].status = req.body.states[key];
+
+                }
             }
             seal.save((err, updatedSeal) => {
                 if (err) {

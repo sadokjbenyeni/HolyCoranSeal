@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { ErrorHandler, Injectable } from '@angular/core';
 import { HttpClient, } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,12 @@ export class SealDataService {
   constructor(private http: HttpClient) { }
 
   private apiBaseUrl = 'http://localhost:3000/api';
-  private data = {
+  private newSeal = {
     title: ''
+  };
+  private sealToUpdate = {
+    readers: new Array<any>(),
+    states: new Array<any>(),
   };
   public getSeals(): any {
     const url = `${this.apiBaseUrl}/seals`;
@@ -24,11 +28,19 @@ export class SealDataService {
   }
 
   public createNewSeal(title: string): any {
-    this.data.title = title;
+    this.newSeal.title = title;
     const url = `${this.apiBaseUrl}/seals`;
-    return this.http.post(url, this.data).toPromise().then(response => response as any).catch(this.handleError);
+    return this.http.post(url, this.newSeal).toPromise().then(response => response as any).catch(this.handleError);
   }
 
+  public updateSeal(readers: any, states: any, sealid: number): any {
+    const url = `${this.apiBaseUrl}/seal/${sealid}`;
+    this.sealToUpdate.readers = readers;
+    this.sealToUpdate.states = states;
+    // tslint:disable-next-line: no-debugger
+    console.log(this.sealToUpdate);
+    return this.http.put(url, this.sealToUpdate).toPromise().then(response => response as any).catch(this.handleError);
+  }
   private handleError(error: any): Promise<any> {
     console.error('Something has gone wrong', error);
     return Promise.reject(error.message || error);

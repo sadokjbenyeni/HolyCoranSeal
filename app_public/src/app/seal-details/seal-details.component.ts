@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogPrayerComponent } from '../dialog-prayer/dialog-prayer.component';
-export interface SealTable {
+import { SealDataService } from '../seal-data.service';
+import { Dictionary } from 'lodash';
+export interface ISealTable {
   id: number;
   chapters: string;
   part: string;
@@ -9,11 +11,10 @@ export interface SealTable {
   progress: string;
 }
 
-interface ChapterState {
+interface IChapterState {
   value: string;
   viewValue: string;
 }
-
 @Component({
   selector: 'app-seal-details',
   templateUrl: './seal-details.component.html',
@@ -22,13 +23,10 @@ interface ChapterState {
 export class SealDetailsComponent implements OnInit {
 
   @Input() content: any;
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private sealDataService: SealDataService) { }
 
-  chapterStates: ChapterState[] = [
-    { value: 'notRead', viewValue: 'لم تقرأ' },
-    { value: 'reading', viewValue: 'في طور القراءة' },
-    { value: 'read', viewValue: 'قرأت' }
-  ];
+  public readers: any = {};
+  public states: any = {};
 
   displayedColumns: string[] = ['progress', 'reader', 'part', 'chapter', 'id'];
 
@@ -37,6 +35,13 @@ export class SealDetailsComponent implements OnInit {
 
   openDialog(): void {
     this.dialog.open(DialogPrayerComponent);
+  }
+
+  public updateSeal(): void {
+    for (const key of Object.keys(this.states)) {
+      this.states[key] = (this.states[key] === 'reading') ? 'في طور القراءة' : 'قرأت';
+    }
+    this.sealDataService.updateSeal(this.readers, this.states, this.content.tableHeader.id);
   }
 
 

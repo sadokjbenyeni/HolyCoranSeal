@@ -1,11 +1,12 @@
 <mat-card style="background-color: #002d4e;">
     <div class="row">
         <mat-card-actions class="col-6 row">
-            <button mat-button>سجّل</button>
+            <button mat-button (click)="updateSeal()">سجّل</button>
             <button mat-button (click)="openDialog()">إقرأ الدّعاء</button>
         </mat-card-actions>
         <mat-card-header class="col-6" style="justify-content: flex-end;">
-            <mat-card-title style="color: #e1bc52; text-align: end;">{{content.tableHeader.title}} {{content.tableHeader.id}}</mat-card-title>
+            <mat-card-title style="color: #e1bc52; text-align: end;">{{content.tableHeader.title}}
+                {{content.tableHeader.id}}</mat-card-title>
             <mat-card-subtitle style="text-align: end;">إختر جزء أو أكثر لقرآءته</mat-card-subtitle>
         </mat-card-header>
     </div>
@@ -21,13 +22,13 @@
             <table mat-table [dataSource]="content.sealdetails">
                 <ng-container matColumnDef="progress">
                     <th mat-header-cell *matHeaderCellDef style="color: #e1bc52;"> التقدم </th>
-                    <td mat-cell *matCellDef="let element">
+                    <td mat-cell *matCellDef="let element; let i = index">
                         <mat-form-field style="width: 80%;">
-                            <mat-label>الحالة</mat-label>
-                            <mat-select>
-                                <mat-option *ngFor="let chapterState of chapterStates" [value]="chapterState.value">
-                                    {{chapterState.viewValue}}
-                                </mat-option>
+                            <mat-label>{{element.status}}</mat-label>
+                            <mat-select [(value)]="states[i+1]">
+                                <mat-option>لم تقرأ</mat-option>
+                                <mat-option value="reading">في طور القراءة</mat-option>
+                                <mat-option value="read">قرأت</mat-option>
                             </mat-select>
                         </mat-form-field>
                     </td>
@@ -35,11 +36,12 @@
 
                 <ng-container matColumnDef="reader">
                     <th mat-header-cell *matHeaderCellDef style="color: #e1bc52;">القارئ</th>
-                    <td mat-cell *matCellDef="let element">
+                    <td mat-cell *matCellDef="let element; let i = index">
                         <form style="text-align: center;">
                             <mat-form-field style="width: 80%;">
                                 <mat-label>{{element.reader}}</mat-label>
-                                <input matInput placeholder="القارئ">
+                                <input matInput [(ngModel)]="readers[i+1]" name="reader" ngDefaultControl
+                                    placeholder="القارئ">
                             </mat-form-field>
                         </form>
                     </td>
