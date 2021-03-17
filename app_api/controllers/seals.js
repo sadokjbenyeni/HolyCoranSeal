@@ -38,9 +38,14 @@ const createSeal = (req, res) => {
     });
 };
 
-const getOneSeal = (req, res) => {
+const getOneSeal = async (req, res) => {
+    var sealsList = await Seal.find().exec();
+    const lastSealId = req.body.sealid ? req.body.sealid : sealsList[sealsList.length - 1].id;
+    // if (req.body.sealid) {
+    //     lastSealId = req.body.sealid;
+    // }
     Seal
-        .findOne({ id: req.params.sealid })
+        .findOne({ id: lastSealId })
         .exec((err, seal) => {
             if (!seal) {
                 return res

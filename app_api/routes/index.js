@@ -9,8 +9,10 @@ router
 
 router
   .route('/seal/:sealid')
-  .get(sealsController.getOneSeal)
   .put(sealsController.updateOneSeal)
   .delete(sealsController.deleteOneSeal);
 
+router
+  .route('/seal')
+  .get(sealsController.getOneSeal)
 module.exports = router;

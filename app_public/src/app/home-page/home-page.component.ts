@@ -46,7 +46,7 @@ export class HomePageComponent implements OnInit {
     }
     );
     if (!this.selectedSealData) {
-      this.sealDataService.getSealById(1).subscribe((foundSeal: Seal) => {
+      this.sealDataService.getOneSeal().subscribe((foundSeal: Seal) => {
         this.pageContent.tableHeader.title = foundSeal.title;
         this.pageContent.tableHeader.id = foundSeal.id;
         this.pageContent.sealdetails = foundSeal.chapters;

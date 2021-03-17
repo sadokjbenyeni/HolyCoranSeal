@@ -22,9 +22,9 @@ export class SealDataService {
     return this.http.get(url);
   }
 
-  public getSealById(id: number): any {
-    const url = `${this.apiBaseUrl}/seal/${id}`;
-    return this.http.get(url);
+  public getOneSeal(id?: any): any {
+    const url = `${this.apiBaseUrl}/seal`;
+    return this.http.get(url, id);
   }
 
   public createNewSeal(title: string): any {
