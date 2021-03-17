@@ -6,6 +6,7 @@ export class Seal {
   title: string;
   creationDate: Date;
   closingDate: Date;
+  progress: number;
   chapters: Chapter[];
 }
 
@@ -29,10 +30,10 @@ export class HomePageComponent implements OnInit {
 
   public seal: Seal;
   public seals: Seal[];
-  public lastSealId: number;
   public pageContent = {
     sealslist: new Array<Seal>(),
     sealdetails: new Array<Chapter>(),
+    sealProgress: 0,
     tableHeader: {
       id: 0,
       title: ''
@@ -41,7 +42,6 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.sealDataService.getSeals().subscribe((foundSeals: Seal[]) => {
-      this.lastSealId = foundSeals[foundSeals.length - 1].id;
       this.pageContent.sealslist = foundSeals;
     }
     );
@@ -50,6 +50,7 @@ export class HomePageComponent implements OnInit {
         this.pageContent.tableHeader.title = foundSeal.title;
         this.pageContent.tableHeader.id = foundSeal.id;
         this.pageContent.sealdetails = foundSeal.chapters;
+        this.pageContent.sealProgress = foundSeal.progress;
       });
     }
   }
@@ -59,5 +60,6 @@ export class HomePageComponent implements OnInit {
     this.pageContent.tableHeader.id = seal.id;
     this.pageContent.tableHeader.title = seal.title;
     this.pageContent.sealdetails = seal.chapters;
+    this.pageContent.sealProgress = seal.progress;
   }
 }

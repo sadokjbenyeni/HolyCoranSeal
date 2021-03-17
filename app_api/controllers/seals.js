@@ -69,6 +69,7 @@ const updateOneSeal = (req, res) => {
         .findOne({ id: req.params.sealid })
         .select('chapters')
         .exec((err, seal) => {
+            let totalProgress = 0;
             if (!seal) {
                 return res
                     .status(404)
@@ -88,9 +89,14 @@ const updateOneSeal = (req, res) => {
             if (req.body.states) {
                 for (const key in req.body.states) {
                     seal.chapters[key - 1].status = req.body.states[key];
-
                 }
             }
+            seal.chapters.forEach(chapter => {
+                if (chapter.status == 'قرأت') {
+                    totalProgress += chapter.score
+                }
+            });
+            seal.progress = totalProgress;
             seal.save((err, updatedSeal) => {
                 if (err) {
                     res
