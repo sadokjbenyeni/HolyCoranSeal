@@ -37,9 +37,13 @@ export class SealDataService {
     const url = `${this.apiBaseUrl}/seal/${sealid}`;
     this.sealToUpdate.readers = readers;
     this.sealToUpdate.states = states;
-    // tslint:disable-next-line: no-debugger
     console.log(this.sealToUpdate);
     return this.http.put(url, this.sealToUpdate).toPromise().then(response => response as any).catch(this.handleError);
+  }
+
+  public deleteSeal(id: number): any {
+    const url = `${this.apiBaseUrl}/seal/${id}`;
+    return this.http.delete(url).toPromise().then(response => response as any).catch(this.handleError);
   }
   private handleError(error: any): Promise<any> {
     console.error('Something has gone wrong', error);

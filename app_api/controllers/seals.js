@@ -120,7 +120,7 @@ const deleteOneSeal = (req, res) => {
     const { sealid } = req.params;
     if (sealid) {
         Seal
-            .findByIdAndRemove(sealid)
+            .findOneAndDelete({ id: sealid })
             .exec((err, seal) => {
                 if (err) {
                     return res

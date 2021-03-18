@@ -13,7 +13,7 @@ export class SealsListComponent implements OnInit {
 
   @Input() content: any;
   @Output() selectedSeal = new EventEmitter<any>();
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private sealDataService: SealDataService) { }
 
   ngOnInit(): void {
   }
@@ -27,5 +27,9 @@ export class SealsListComponent implements OnInit {
       width: '280px',
       height: '180px'
     });
+  }
+
+  deleteSeal(id: number): void {
+    this.sealDataService.deleteSeal(id);
   }
 }
