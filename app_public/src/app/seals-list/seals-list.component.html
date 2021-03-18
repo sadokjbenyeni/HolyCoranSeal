@@ -15,9 +15,11 @@
     </mat-card-content>
     <mat-card-content>
         <mat-selection-list *ngFor="let seal of content.sealslist" [multiple]="false">
-            <mat-list-option style="text-align: end;" (click)="shareSelectedSeal(seal)">{{seal.id}} {{seal.creationDate
-                | date: 'dd/MM/yyyy'}} {{seal.title}}
-                <button (click)="deleteSeal(seal.id)"><i class="fa fa-trash"></i> </button>
+            <mat-list-option style="text-align: end;" (click)="shareSelectedSeal(seal)">
+                <p> {{seal.creationDate
+                    | date: 'dd/MM/yyyy'}} / {{seal.title}} </p>
+                <button mat-fab style="background-color: #002746;
+                color: #d1a646;" class="col-2" (click)="deleteSeal(seal.id)"><i class="fa fa-trash"></i> </button>
             </mat-list-option>
         </mat-selection-list>
     </mat-card-content>
