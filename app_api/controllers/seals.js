@@ -40,12 +40,9 @@ const createSeal = (req, res) => {
 
 const getOneSeal = async (req, res) => {
     var sealsList = await Seal.find().exec();
-    const lastSealId = req.body.sealid ? req.body.sealid : sealsList[sealsList.length - 1].id;
-    // if (req.body.sealid) {
-    //     lastSealId = req.body.sealid;
-    // }
+    const lastSealId = req.body.sealid ? req.body.sealid : sealsList[sealsList.length - 1]._id;
     Seal
-        .findOne({ id: lastSealId })
+        .findById(lastSealId)
         .exec((err, seal) => {
             if (!seal) {
                 return res
@@ -71,7 +68,7 @@ const updateOneSeal = (req, res) => {
             });
     }
     Seal
-        .findOne({ id: req.params.sealid })
+        .findById(req.params.sealid)
         .select('chapters')
         .exec((err, seal) => {
             let totalProgress = 0;
@@ -120,7 +117,7 @@ const deleteOneSeal = (req, res) => {
     const { sealid } = req.params;
     if (sealid) {
         Seal
-            .findOneAndDelete({ id: sealid })
+            .findByIdAndDelete(sealid)
             .exec((err, seal) => {
                 if (err) {
                     return res

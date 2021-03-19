@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SealDataService } from '../seal-data.service';
 
 export class Seal {
-  id: number;
+  _id: string;
   title: string;
   creationDate: Date;
   closingDate: Date;
@@ -35,7 +35,7 @@ export class HomePageComponent implements OnInit {
     sealdetails: new Array<Chapter>(),
     sealProgress: 0,
     tableHeader: {
-      id: 0,
+      id: '',
       title: ''
     }
   };
@@ -48,7 +48,7 @@ export class HomePageComponent implements OnInit {
     if (!this.selectedSealData) {
       this.sealDataService.getOneSeal().subscribe((foundSeal: Seal) => {
         this.pageContent.tableHeader.title = foundSeal.title;
-        this.pageContent.tableHeader.id = foundSeal.id;
+        this.pageContent.tableHeader.id = foundSeal._id;
         this.pageContent.sealdetails = foundSeal.chapters;
         this.pageContent.sealProgress = foundSeal.progress;
       });
@@ -57,7 +57,7 @@ export class HomePageComponent implements OnInit {
 
   public onSelectSeal(seal: Seal): void {
     this.selectedSealData = seal;
-    this.pageContent.tableHeader.id = seal.id;
+    this.pageContent.tableHeader.id = seal._id;
     this.pageContent.tableHeader.title = seal.title;
     this.pageContent.sealdetails = seal.chapters;
     this.pageContent.sealProgress = seal.progress;

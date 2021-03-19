@@ -29,7 +29,7 @@ export class SealsListComponent implements OnInit {
     });
   }
 
-  deleteSeal(id: number): void {
+  deleteSeal(id: string): void {
     this.sealDataService.deleteSeal(id);
   }
 }

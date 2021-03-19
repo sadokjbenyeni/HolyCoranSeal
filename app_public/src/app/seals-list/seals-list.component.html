@@ -19,7 +19,7 @@
                 <p> {{seal.creationDate
                     | date: 'dd/MM/yyyy'}} / {{seal.title}} </p>
                 <button mat-fab style="background-color: #002746;
-                color: #d1a646;" class="col-2" (click)="deleteSeal(seal.id)"><i class="fa fa-trash"></i> </button>
+                color: #d1a646;" class="col-2" (click)="deleteSeal(seal._id)"><i class="fa fa-trash"></i> </button>
             </mat-list-option>
         </mat-selection-list>
     </mat-card-content>

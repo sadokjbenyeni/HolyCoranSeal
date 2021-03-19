@@ -33,7 +33,6 @@ const chaptersSchema = new mongoose.Schema({
 });
 
 const sealSchema = new mongoose.Schema({
-    id: Number,
     title: String,
     progress: {
         type: Number,
@@ -55,5 +54,4 @@ const sealSchema = new mongoose.Schema({
         default: chapterDefault
     }
 })
-
 mongoose.model('Seal', sealSchema);

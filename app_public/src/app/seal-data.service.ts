@@ -41,7 +41,7 @@ export class SealDataService {
     return this.http.put(url, this.sealToUpdate).toPromise().then(response => response as any).catch(this.handleError);
   }
 
-  public deleteSeal(id: number): any {
+  public deleteSeal(id: string): any {
     const url = `${this.apiBaseUrl}/seal/${id}`;
     return this.http.delete(url).toPromise().then(response => response as any).catch(this.handleError);
   }
