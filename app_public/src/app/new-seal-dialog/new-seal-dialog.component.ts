@@ -22,5 +22,6 @@ export class NewSealDialogComponent implements OnInit {
 
   createNewSeal(): void {
     this.sealDataService.createNewSeal(this.data);
+    window.location.reload();
   }
 }

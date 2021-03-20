@@ -1,5 +1,8 @@
-import { ErrorHandler, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient, } from '@angular/common/http';
+import { environment } from '../environments/environment';
+import { Seal } from './seal';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,7 +12,7 @@ export class SealDataService {
 
   constructor(private http: HttpClient) { }
 
-  private apiBaseUrl = 'http://localhost:3000/api';
+  private apiBaseUrl = environment.apiBaseUrl;
   private newSeal = {
     title: ''
   };

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogPrayerComponent } from '../dialog-prayer/dialog-prayer.component';
 import { SealDataService } from '../seal-data.service';
 import { Dictionary } from 'lodash';
+import { Router } from '@angular/router';
 export interface ISealTable {
   id: number;
   chapters: string;
@@ -23,7 +24,7 @@ interface IChapterState {
 export class SealDetailsComponent implements OnInit {
 
   @Input() content: any;
-  constructor(public dialog: MatDialog, private sealDataService: SealDataService) { }
+  constructor(public dialog: MatDialog, private sealDataService: SealDataService, private router: Router) { }
 
   public readers: any = {};
   public states: any = {};
@@ -42,7 +43,7 @@ export class SealDetailsComponent implements OnInit {
       this.states[key] = (this.states[key] === 'reading') ? 'في طور القراءة' : 'قرأت';
     }
     this.sealDataService.updateSeal(this.readers, this.states, this.content.tableHeader.id);
+    window.location.reload();
+
   }
-
-
 }

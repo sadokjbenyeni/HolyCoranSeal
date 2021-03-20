@@ -2,7 +2,7 @@
     <div class="row">
         <mat-card-actions class="col-6 row">
             <button mat-button (click)="updateSeal()">سجّل</button>
-            <button mat-button (click)="openDialog()">إقرأ الدّعاء</button>
+            <button mat-button [disabled]="content.sealProgress!=100" (click)="openDialog()">إقرأ الدّعاء</button>
         </mat-card-actions>
         <mat-card-header class="col-6" style="justify-content: flex-end;">
             <mat-card-title style="color: #e1bc52; text-align: end;">{{content.tableHeader.title}}</mat-card-title>

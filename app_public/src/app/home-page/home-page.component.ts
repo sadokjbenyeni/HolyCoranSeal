@@ -1,22 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Chapter } from '../chapter';
+import { Seal } from '../seal';
 import { SealDataService } from '../seal-data.service';
 
-export class Seal {
-  _id: string;
-  title: string;
-  creationDate: Date;
-  closingDate: Date;
-  progress: number;
-  chapters: Chapter[];
-}
-
-export class Chapter {
-  id: number;
-  chapters: string;
-  part: string;
-  reader: string;
-  status: string;
-}
 
 @Component({
   selector: 'app-home-page',
