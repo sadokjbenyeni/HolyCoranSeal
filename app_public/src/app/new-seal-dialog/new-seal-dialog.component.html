@@ -1,15 +1,12 @@
-<div class="container" style="-webkit-box-pack: start;
-">
-    <h4 style="text-align: end;" mat-dialog-title>افتتح ختمة جديدة</h4>
+<div class="container">
+    <h4 mat-dialog-title>افتتح ختمة جديدة</h4>
     <div mat-dialog-content>
-        <mat-form-field style="text-align: end;    float: right;
-        ">
+        <mat-form-field>
             <mat-label>المناسبة</mat-label>
             <input matInput [(ngModel)]="data">
         </mat-form-field>
     </div>
-    <div mat-dialog-actions style="    float: right;
-    ">
+    <div mat-dialog-actions>
         <button mat-button (click)="onNoClick()">لا</button>
         <button mat-button (click)="createNewSeal()" [mat-dialog-close]="data" cdkFocusInitial>نعم</button>
     </div>

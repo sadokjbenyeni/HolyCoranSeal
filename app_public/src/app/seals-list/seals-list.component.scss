@@ -1,0 +1,38 @@
+mat-card {
+  background-color: #001b30;
+}
+
+.example-button-container {
+  text-align: end;
+}
+
+.example-button-container button {
+  color: #001b30;
+  background-color: #d1a646;
+}
+
+mat-card-header {
+  justify-content: flex-end;
+}
+
+mat-list-option {
+  text-align: end;
+}
+
+.mat-icon-button {
+  color: #d1a646;
+}
+
+mat-card-title {
+  color: #e1bc52;
+  text-align: end;
+}
+
+mat-card-subtitle {
+  text-align: end;
+}
+
+mat-card-content {
+  max-height: 50vh;
+  overflow-y: scroll;
+}

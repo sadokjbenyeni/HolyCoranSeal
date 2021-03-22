@@ -1,23 +1,22 @@
-<mat-card style="background-color: #001b30;">
+<mat-card>
     <div class="row">
-        <div class="example-button-container col-3" style="text-align: end;">
-            <button (click)="openDialog()" mat-fab color="warn" style="color: #001b30;
-      background-color: #d1a646;" aria-label="Example icon button with a home icon">
+        <div class="example-button-container col-3">
+            <button (click)="openDialog()" mat-fab color="warn" aria-label="Example icon button with a home icon">
                 <i class="fa fa-plus"></i>
             </button>
         </div>
-        <mat-card-header class="col-9" style="justify-content: flex-end;">
-            <mat-card-title style="color: #e1bc52; text-align: end;">سلسلة الختمات</mat-card-title>
-            <mat-card-subtitle style="text-align: end;">ابحث عن ختمة أو إفتتح واحدة جديدة</mat-card-subtitle>
+        <mat-card-header class="col-9">
+            <mat-card-title>سلسلة الختمات</mat-card-title>
+            <mat-card-subtitle>ابحث عن ختمة أو إفتتح واحدة جديدة</mat-card-subtitle>
         </mat-card-header>
     </div>
     <mat-card-content>
     </mat-card-content>
     <mat-card-content>
-        <mat-selection-list *ngFor="let seal of content.sealslist" [multiple]="false">
-            <mat-list-option style="text-align: end;" (click)="shareSelectedSeal(seal)">
+        <mat-selection-list *ngFor="let seal of content.sealslist; " [multiple]="false">
+            <mat-list-option (click)="shareSelectedSeal(seal)">
                 <p class="col-11">{{seal.title}} </p>
-                <button mat-icon-button style="color: #d1a646;" class="col-1" (click)="deleteSeal(seal._id)">
+                <button mat-icon-button class="col-1" (click)="deleteSeal(seal._id)">
                     <mat-icon>delete</mat-icon>
                 </button>
             </mat-list-option>
