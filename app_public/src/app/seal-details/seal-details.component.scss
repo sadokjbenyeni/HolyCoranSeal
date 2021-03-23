@@ -4,7 +4,7 @@ table {
 
 .table-responsive {
   overflow-y: scroll;
-  height: 55vh;
+  height: 60vh;
   display: block;
 }
 
@@ -58,14 +58,6 @@ table {
   text-align: center;
   height: 12vh;
 }
-
-// .mat-progress-bar.mat-accent .mat-progress-bar-buffer {
-//   background-color: #b1a47e !important;
-// }
-
-// .mat-progress-bar.mat-accent .mat-progress-bar-fill::after {
-//   background-color: #002d4e !important;
-// }
 
 .mat-header-cell {
   color: #e1bc52;
@@ -133,4 +125,27 @@ mat-card-actions button {
 
 .mat-column-id {
   max-width: 50px;
+}
+
+::ng-deep .mat-form-field-infix{
+  text-align: end;
+}
+
+::ng-deep .mat-select-panel{
+  background-color: #002d4e;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #e1bc52 !important;
+ }
+
+ ::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #e1bc52 !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: #e1bc52 !important;;
 }

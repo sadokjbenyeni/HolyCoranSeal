@@ -11,8 +11,8 @@
         </mat-card-header>
     </div>
     <div class="progression row">
-        <span class="col-2 blue-text">{{content.sealProgress}}%</span>
-        <mat-progress-bar class="col-6" color='accent' mode="determinate" value="content.sealProgress">
+        <span class="col-1 blue-text">{{content.sealProgress}}%</span>
+        <mat-progress-bar class="col-7" mode="determinate" [value]="content.sealProgress">
         </mat-progress-bar>
         <span class="col-4 blue-text">تقدّم الختمة</span>
 
