@@ -23,7 +23,8 @@ export class HomePageComponent implements OnInit {
     tableHeader: {
       id: '',
       title: ''
-    }
+    },
+    startDate: new Date()
   };
 
   ngOnInit(): void {
@@ -37,6 +38,7 @@ export class HomePageComponent implements OnInit {
         this.pageContent.tableHeader.id = foundSeal._id;
         this.pageContent.sealdetails = foundSeal.chapters;
         this.pageContent.sealProgress = foundSeal.progress;
+        this.pageContent.startDate = foundSeal.creationDate;
       });
     }
   }
@@ -47,5 +49,6 @@ export class HomePageComponent implements OnInit {
     this.pageContent.tableHeader.title = seal.title;
     this.pageContent.sealdetails = seal.chapters;
     this.pageContent.sealProgress = seal.progress;
+    this.pageContent.startDate = seal.creationDate;
   }
 }

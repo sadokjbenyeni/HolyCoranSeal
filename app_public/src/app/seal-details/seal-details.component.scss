@@ -52,15 +52,13 @@ table {
 
 .mat-header-cell {
   text-align: center;
+  color: #e1bc52;
+  font-weight: 600;
 }
 
 .mat-cell {
   text-align: center;
   height: 12vh;
-}
-
-.mat-header-cell {
-  color: #e1bc52;
 }
 
 mat-card {
@@ -107,6 +105,10 @@ mat-card-actions button {
   background-color: #001b30;
 }
 
+::ng-deep .mat-option-text {
+  text-align: end;
+}
+
 .mat-column-part {
   min-width: 50px;
 }
@@ -127,25 +129,30 @@ mat-card-actions button {
   max-width: 50px;
 }
 
-::ng-deep .mat-form-field-infix{
+::ng-deep .mat-form-field-infix {
   text-align: end;
 }
 
-::ng-deep .mat-select-panel{
+::ng-deep .mat-select-panel {
   background-color: #002d4e;
 }
 
 ::ng-deep .mat-focused .mat-form-field-label {
   /*change color of label*/
   color: #e1bc52 !important;
- }
+}
 
- ::ng-deep.mat-form-field-underline {
+::ng-deep.mat-form-field-underline {
   /*change color of underline*/
   background-color: #e1bc52 !important;
-} 
+}
 
 ::ng-deep.mat-form-field-ripple {
- /*change color of underline when focused*/
- background-color: #e1bc52 !important;;
+  /*change color of underline when focused*/
+  background-color: #e1bc52 !important;
+}
+
+.italized {
+  font-style: italic;
+  font-weight: 200;
 }
