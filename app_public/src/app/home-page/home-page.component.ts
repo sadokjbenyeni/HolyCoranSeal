@@ -24,7 +24,8 @@ export class HomePageComponent implements OnInit {
       id: '',
       title: ''
     },
-    startDate: new Date()
+    startDate: new Date(),
+    closeDate: new Date()
   };
 
   ngOnInit(): void {
@@ -39,6 +40,7 @@ export class HomePageComponent implements OnInit {
         this.pageContent.sealdetails = foundSeal.chapters;
         this.pageContent.sealProgress = foundSeal.progress;
         this.pageContent.startDate = foundSeal.creationDate;
+        this.pageContent.closeDate = foundSeal.closingDate;
       });
     }
   }
@@ -50,5 +52,6 @@ export class HomePageComponent implements OnInit {
     this.pageContent.sealdetails = seal.chapters;
     this.pageContent.sealProgress = seal.progress;
     this.pageContent.startDate = seal.creationDate;
+    this.pageContent.closeDate = seal.closingDate;
   }
 }

@@ -1,16 +1,28 @@
-.back-image {
-  background-image: url(../../assets/images/prayer-background.png);
+.container {
+  background-color: #001b30;
 }
 
+h6 {
+  margin: 0px;
+  font-size: x-large;
+  margin-bottom: 25px;
+  font-family: "system-ui";
+}
 p {
   text-align: center;
   -webkit-text-stroke-width: 0.2px;
   -webkit-text-stroke-color: #e1bc52;
-  font-size: 1vw;
+  font-size: small;
+  font-family: "system-ui";
 }
 
 .dialog-title {
   text-align: center;
   background-color: #001b30;
   color: #e1bc52;
+}
+
+.mat-dialog-content {
+  overflow: overlay
+  ;
 }

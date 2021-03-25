@@ -66,6 +66,9 @@ const updateOneSeal = async (req, res) => {
                 totalProgress += chapter.score
             }
         });
+        if (totalProgress == 100) {
+            seal.closingDate = Date.now();
+        }
         seal.progress = totalProgress;
         seal.save((err, updatedSeal) => {
             if (err) {

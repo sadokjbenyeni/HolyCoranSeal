@@ -46,7 +46,7 @@ const sealSchema = new mongoose.Schema({
     },
     closingDate: {
         type: Date,
-        default: new Date()
+        default: Date.now()
     },
     chapters: {
         type: [chaptersSchema],
