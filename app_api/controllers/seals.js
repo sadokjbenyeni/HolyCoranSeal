@@ -27,18 +27,22 @@ const createSeal = async (req, res) => {
 
 const getOneSeal = async (req, res) => {
     var sealsList = await Seal.find().exec();
-    const lastSealId = req.body.sealid ? req.body.sealid : sealsList[sealsList.length - 1]._id;
-    try {
-        const seal = await Seal.findById(lastSealId).exec();
-        if (!seal) {
-            return res.status(404).json({ "message": "Seal not found" });
+    if (sealsList.length != 0) {
+        const lastSealId = req.body.sealid ? req.body.sealid : sealsList[sealsList.length - 1]._id;
+        try {
+            const seal = await Seal.findById(lastSealId).exec();
+            if (!seal) {
+                return res.status(404).json({ "message": "Seal not found" });
+            }
+            res.status(200).json(seal);
         }
-        res.status(200).json(seal);
+        catch (error) {
+            return res.status(500).json(error);
+        }
+    } else{
+        return res.status(200).json({"empty": true});
     }
-    catch (error) {
-        return res.status(500).json(error);
-    }
-
+    
 };
 
 const updateOneSeal = async (req, res) => {

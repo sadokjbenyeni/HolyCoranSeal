@@ -1,5 +1,6 @@
 <app-page-header></app-page-header>
-<mat-card>
+<mat-card style="height: 100%;
+">
   <div class="row full-height">
     <app-seals-list (selectedSeal)="onSelectSeal($event)" [content]="pageContent" class="col-sm-3"></app-seals-list>
     <app-seal-details [content]="pageContent" class="col-sm-9"></app-seal-details>

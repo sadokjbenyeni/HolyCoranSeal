@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card *ngIf="content.sealdetails" style="height: 100%;">
     <div class="row">
         <mat-card-actions class="col-6 row">
             <button class="col-4" mat-button (click)="updateSeal()">سجّل</button>
@@ -69,5 +69,10 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
         </div>
+    </mat-card-content>
+</mat-card>
+<mat-card *ngIf="!content.sealdetails" style="height: 100%;">
+    <mat-card-content>
+        <p style="text-align: center;">لا توجد ٱيّة ختمة بعد</p>
     </mat-card-content>
 </mat-card>
