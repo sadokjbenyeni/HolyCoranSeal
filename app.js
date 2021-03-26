@@ -8,7 +8,7 @@ const apiRouter = require('./app_api/routes/index');
 const cors = require('cors');
 var app = express();
 
-app.set('views', path.join(__dirname, 'app_server', 'views'));
+// app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'jade');
 
 
