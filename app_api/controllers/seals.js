@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === 'production') {
 
 const getSeals = async (req, res) => {
 
-    try {ntnt
+    try {
         const seals = await Seal.find().exec();
         if (!seals) {
             return res.status(404).json({ "message": "No seals found" });
