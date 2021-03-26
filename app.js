@@ -9,7 +9,7 @@ const cors = require('cors');
 var app = express();
 
 // app.set('views', path.join(__dirname, 'app_server', 'views'));
-app.set('view engine', 'jade');
+// app.set('view engine', 'jade');
 
 
 app.use(logger('dev'));
@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'app_public')));
+app.use(express.static(path.join(__dirname, 'app_public', 'build')));
 app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
 app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
 app.use('/fa', express.static(path.join(__dirname, 'node_modules/@fortawesome/fontawesome-free/css')));
@@ -36,11 +36,14 @@ app.use(function (req, res, next) {
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
+  console.log("Before")
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+  console.log("After")
+
 });
 
 module.exports = app;

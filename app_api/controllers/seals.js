@@ -1,9 +1,16 @@
 const mongoose = require('mongoose');
 const Seal = mongoose.model('Seal')
 
+const apiOptions = {
+    server: 'http://localhost:3000'
+};
+if (process.env.NODE_ENV === 'production') {
+    apiOptions.server = 'https://holy-coran-seal.herokuapp.com';
+}
+
 const getSeals = async (req, res) => {
 
-    try {
+    try {ntnt
         const seals = await Seal.find().exec();
         if (!seals) {
             return res.status(404).json({ "message": "No seals found" });
@@ -39,10 +46,10 @@ const getOneSeal = async (req, res) => {
         catch (error) {
             return res.status(500).json(error);
         }
-    } else{
-        return res.status(200).json({"empty": true});
+    } else {
+        return res.status(200).json({ "empty": true });
     }
-    
+
 };
 
 const updateOneSeal = async (req, res) => {
