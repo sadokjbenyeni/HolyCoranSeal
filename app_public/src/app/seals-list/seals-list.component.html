@@ -16,9 +16,9 @@
         <mat-selection-list *ngFor="let seal of content.sealslist; " [multiple]="false">
             <mat-list-option (click)="shareSelectedSeal(seal)">
                 <p class="col-11">{{seal.title}} </p>
-                <button mat-icon-button class="col-1" (click)="deleteSeal(seal._id)">
+                <!-- <button mat-icon-button class="col-1" (click)="deleteSeal(seal._id)">
                     <i class="fa fa-trash"></i>
-                </button>
+                </button> -->
             </mat-list-option>
         </mat-selection-list>
     </mat-card-content>
