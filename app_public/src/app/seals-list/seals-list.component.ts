@@ -28,8 +28,9 @@ export class SealsListComponent implements OnInit {
     });
   }
 
-  deleteSeal(id: string): void {
-    this.sealDataService.deleteSeal(id);
-    window.location.reload();
-  }
+  // Disabled Momentarely
+  // deleteSeal(id: string): void {
+  //   this.sealDataService.deleteSeal(id);
+  //   window.location.reload();
+  // }
 }
