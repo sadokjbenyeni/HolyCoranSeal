@@ -7,7 +7,7 @@
         </mat-form-field>
     </div>
     <div mat-dialog-actions>
-        <button mat-button (click)="onNoClick()">لا</button>
-        <button mat-button (click)="createNewSeal()" [mat-dialog-close]="data" cdkFocusInitial>نعم</button>
+        <button mat-button class="no-button" (click)="onNoClick()">لا</button>
+        <button mat-button class="yes-button" (click)="createNewSeal()" [mat-dialog-close]="data" cdkFocusInitial>نعم</button>
     </div>
 </div>

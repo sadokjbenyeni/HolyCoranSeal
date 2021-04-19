@@ -1,0 +1,31 @@
+mat-form-field {
+    text-align: end;
+    float: right;
+  }
+  
+  p{
+    font-size: medium;
+    font-weight: 700;
+    float: right;
+  }
+  .container {
+    -webkit-box-pack: start;
+  }
+  
+  .mat-dialog-actions {
+    float: right;
+  }
+  
+  .mat-dialog-title {
+    text-align: end;
+  }
+  
+  .no-button {
+    background-color: rgb(107, 106, 103);
+    color: rgb(255, 255, 255);
+  }
+  
+  .yes-button {
+    background-color: rgb(155, 19, 9);
+    color: rgb(255, 255, 255);
+  }

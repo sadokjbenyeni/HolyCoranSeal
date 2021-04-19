@@ -1,0 +1,10 @@
+<div class="container">
+    <h4 mat-dialog-title>فسخ هاته الختمة</h4>
+    <div mat-dialog-content>
+        <p>!عند ضغطك على نعم يتم محو الختمة نهائيا</p>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button class="no-button" (click)="onNoClick()" cdkFocusInitial>لا</button>
+        <button mat-button class="yes-button" (click)="deleteSeal(data.sealId)" >نعم</button>
+    </div>
+</div>

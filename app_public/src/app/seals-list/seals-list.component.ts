@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Seal } from '../seal';
 import { NewSealDialogComponent } from '../new-seal-dialog/new-seal-dialog.component';
 import { SealDataService } from '../seal-data.service';
+import { DeleteSealDialogComponent } from '../delete-seal-dialog/delete-seal-dialog.component';
 @Component({
   selector: 'app-seals-list',
   templateUrl: './seals-list.component.html',
@@ -21,16 +22,18 @@ export class SealsListComponent implements OnInit {
     this.selectedSeal.emit(seal);
   }
 
-  openDialog(): void {
+  openCreateDialog(): void {
     const dialogRef = this.dialog.open(NewSealDialogComponent, {
       width: '280px',
       height: '180px'
     });
   }
 
-  // Disabled Momentarely
-  // deleteSeal(id: string): void {
-  //   this.sealDataService.deleteSeal(id);
-  //   window.location.reload();
-  // }
+  openDeleteDialog(id: string): void {
+    const dialogRef = this.dialog.open(DeleteSealDialogComponent, {
+      width: '330px',
+      height: '150px',
+      data: {sealId: id}
+    });
+  }
 }

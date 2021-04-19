@@ -29,6 +29,7 @@ import { NewSealDialogComponent } from './new-seal-dialog/new-seal-dialog.compon
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { MatIconModule } from '@angular/material/icon';
+import { DeleteSealDialogComponent } from './delete-seal-dialog/delete-seal-dialog.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { MatIconModule } from '@angular/material/icon';
     PageHeaderComponent,
     SealsListComponent,
     SealDetailsComponent,
-    NewSealDialogComponent
+    NewSealDialogComponent,
+    DeleteSealDialogComponent
   ],
   imports: [
     BrowserModule,
