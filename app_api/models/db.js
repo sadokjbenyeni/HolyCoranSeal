@@ -3,14 +3,16 @@ let dbURI = 'mongodb://localhost/holy-coran-seal';
 if (process.env.NODE_ENV === 'production') {
     dbURI = process.env.MONGODB_URI;
 }
-mongoose.connect(dbURI, { useNewUrlParser: true });
-
+const connect = () => {
+  setTimeout(() => mongoose.connect(dbURI, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }), 1000);
+}
 mongoose.connection.on('connected', () => {
     console.log(`Mongoose connected to ${dbURI}`);
 });
 
 mongoose.connection.on('error', err => {
     console.log(`Mongoose connection error:, ${err}`);
+    return connect();
 });
 
 mongoose.connection.on('disconnected', () => {
@@ -45,4 +47,5 @@ process.on('SIGTERM', () => {
     });
 });
 
+connect();
 require('./seals');
